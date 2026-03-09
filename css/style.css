@@ -1,0 +1,1532 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Porsche Next', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(90%, 1400px);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.header {
+  display: flex;
+  height: 80px; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 0.8rem;
+  transition: transform 1s ease, opacity 0.8s ease;
+}
+
+.header--static {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 1s ease, opacity 0.8s ease;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+}
+
+.header__logo {
+  display: flex;
+  pointer-events: none;
+  width: 120px;
+  transition: filter var(--transition-normal);
+}
+
+.header__menu {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+.header__link {
+  position: relative;
+  font-family: 'Porsche Next', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+}
+
+.header__link:hover::after {
+  width: 90%;
+}
+
+.header__cart {
+  width: 48px;
+  height: 48px;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.header__cart svg {
+  width: 65%;
+  height: 65%;
+}
+
+.header__cart:hover {
+  color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.header.header--light {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+}
+
+.header.header--light .header__logo {
+  filter: brightness(0) invert(1);
+}
+
+.header.header--light .header__link {
+  color: #E5E4E2;
+}
+
+.header.header--light .header__cart {
+  color: #E5E4E2;
+}
+
+.header.header--dark {
+  /*background-color: rgb(70, 70, 70, 0.4);*/
+  backdrop-filter: none;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+}
+
+.header.header--light .header__link::after {
+  background: #E5E4E2;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/backgr.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -100;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.5) 0%,
+    rgba(26, 26, 26, 0.7) 50%,
+    rgba(26, 26, 26, 0.9) 100%
+  );
+  z-index: -1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 950px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroFadeIn 1.5s ease forwards 0.5s;
+}
+
+@keyframes heroFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__title {
+  font-family: 'Porsche Original', 'Porsche Next', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 6rem);
+  opacity: 90%;
+  color: var(--color-text-inverse);
+  letter-spacing: 0.12em;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-lg);
+  max-width: 600px;
+  margin-inline: auto;
+  line-height: 1.5;
+  opacity: 90%;
+}
+
+/* ========================================
+   INFO SECTION
+   ======================================== */
+
+.Info {
+  position: relative;
+  background-color: var(--color-bg);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 3rem;
+  overflow: hidden;
+}
+
+.Info::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at bottom center,
+    transparent 0%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.171) 100%
+  );
+}
+
+.Info__content {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.Info__title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  height: 12rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  margin-inline: auto;
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.15),
+    -12px -12px 24px rgba(255, 255, 255, 0.8);
+}
+
+.Info__title-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 200deg,
+    rgba(255, 255, 255, 0.9) 240deg,
+    rgba(255, 255, 255, 0.4) 280deg,
+    transparent 320deg,
+    transparent 360deg
+  );
+  animation: shineRotate 6s linear infinite;
+  pointer-events: none;
+}
+
+.Info__title-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 2px; /* Чуть меньше контейнера */
+  background: var(--color-bg);
+  border-radius: calc(var(--radius-lg) - 2px);
+  pointer-events: none;
+}
+
+@keyframes shineRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Info__logo {
+  position: relative;
+  z-index: 2;
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.Info__text-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.Info__text {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.Info__text:last-child {
+  margin-bottom: 0;
+}
+
+.Info__divider {
+  width: 90%;
+  height: 2px;
+  margin: 1.5rem auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.4),
+    0 -1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-full);
+}
+
+/* ========================================
+   CAR PHOTO SECTION
+   ======================================== */
+
+.car-item__divider {
+  width: 90%;
+  height: 2px;
+  margin: 1rem auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 70%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.4),
+    0 -1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.car-gallery {
+  position: relative;
+}
+
+.car-gallery__slides {
+  position: relative;
+  width: calc(100% - 20%);
+  height: 77vh;
+  margin: 40px auto;
+  box-shadow: 
+    0 0 0 5px var(--color-bg-secondary),
+    0 0 10px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.car-gallery__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.8s ease, transform 1s ease-out;
+}
+
+.car-gallery__slide:hover {
+  transform: scale(1.12);
+}
+
+.car-gallery__slide.active {
+  opacity: 1;
+  z-index: 1;
+  filter: blur(0);
+}
+
+.car-gallery__viewport {
+  position: relative;
+}
+
+.car-gallery__arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-gallery__arrow img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.6;
+}
+
+.car-gallery__arrow--left {
+  left: calc(10% - 60px);
+}
+
+.car-gallery__arrow--right {
+  right: calc(10% - 60px);
+}
+
+.car-gallery__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 50;
+  padding: 9px 16px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+}
+
+.car-gallery__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.car-gallery__dot.active {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.4);
+}
+
+.car-gallery__dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.car-item__title-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 5rem;
+  margin: 3.8rem auto 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  width: fit-content;
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__title {
+  font-family: 'Porsche Original', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: var(--color-text);
+  opacity: 90%;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   CAR ITEM — КАРТОЧКА ТОВАРА
+   ======================================== */
+
+.car-item__card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  margin: 3rem auto;
+  max-width: 1450px;
+  width: calc(100% - 20%);
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 4rem;
+}
+
+.car-item__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 400px;
+}
+
+.car-item__name {
+  font-family: 'Porsche Original', sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.car-item__description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin: 1rem 0 2rem;
+}
+
+.car-item__price-wrapper {
+  margin-top: auto;
+}
+
+.car-item__price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  font-family: 'Porsche Next', sans-serif;
+}
+
+.car-item__buy-btn {
+  padding: 1rem 2.5rem;
+  margin-top: -0.2rem;
+  font-family: 'Porsche Next', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.car-item__buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.car-item__buy-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.car-item__specs-title {
+  font-family: 'Porsche Original', sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin: 0 0 1rem 0;
+  text-align: center;
+  letter-spacing: 0.15em;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.car-item__spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  box-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.08),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-label {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.car-item__spec-value {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ========================================
+   FERRARI COLOURS
+   ======================================== */
+
+.car-gallery__arrow-1 {
+  background: linear-gradient(
+    to bottom,
+    rgba(212, 0, 0, 0.03) 0%,
+    rgba(212, 0, 0, 0.06) 50%,
+    rgba(212, 0, 0, 0.03) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(212, 0, 0, 0.14),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-1:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(212, 0, 0, 0.03) 0%,
+    rgba(212, 0, 0, 0.1) 50%,
+    rgba(212, 0, 0, 0.03) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(212, 0, 0, 0.2),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-1.active {
+  border-color: rgba(212, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(212, 0, 0, 1);
+}
+
+.car-item__title-wrapper-1 {
+  box-shadow: 
+    6px 6px 12px rgba(212, 0, 0, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-1 {
+  color: rgba(212, 0, 0, 0.9);
+}
+
+.car-item__card-1 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(212, 0, 0, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-1 {
+  box-shadow: 
+    6px 6px 12px rgba(212, 0, 0, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-1:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(212, 0, 0, 0.14),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(212, 0, 0, 1);
+}
+
+.car-item__buy-btn-1:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(212, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-1 {
+  box-shadow: 
+    8px 8px 16px rgba(212, 0, 0, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-1 {
+  box-shadow: 
+    3px 3px 6px rgba(212, 0, 0, 0.12),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   MERCEDES COLOURS
+   ======================================== */
+
+.car-gallery__arrow-2 {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 157, 135, 0.03) 0%,
+    rgba(0, 157, 135, 0.06) 50%,
+    rgba(0, 157, 135, 0.03) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(0, 157, 135, 0.14),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-2:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 157, 135, 0.03) 0%,
+    rgba(0, 157, 135, 0.1) 50%,
+    rgba(0, 157, 135, 0.03) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(0, 157, 135, 0.2),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-2.active {
+  border-color: rgba(0, 157, 135, 0.7);
+  box-shadow: 0 0 10px rgba(0, 157, 135, 1);
+}
+
+.car-item__title-wrapper-2 {
+  box-shadow: 
+    6px 6px 12px rgba(0, 157, 135, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-2 {
+  color: rgba(0, 157, 135, 0.9);
+}
+
+.car-item__card-2 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 157, 135, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-2 {
+  box-shadow: 
+    6px 6px 12px rgba(0, 157, 135, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-2:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(0, 157, 135, 0.14),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(0, 157, 135, 1);
+}
+
+.car-item__buy-btn-2:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 157, 135, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-2 {
+  box-shadow: 
+    8px 8px 16px rgba(0, 157, 135, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-2 {
+  box-shadow: 
+    3px 3px 6px rgba(0, 157, 135, 0.12),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   REDBULL COLOURS
+   ======================================== */
+
+.car-gallery__arrow-3 {
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 58, 138, 0.08) 0%,
+    rgba(30, 58, 138, 0.12) 50%,
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(30, 58, 138, 0.25),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-3:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 58, 138, 0.08) 0%,
+    rgba(30, 58, 138, 0.2) 50%,
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(30, 58, 138, 0.35),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-3.active {
+  border-color: rgba(30, 58, 138, 0.9);
+  box-shadow: 0 0 10px rgba(30, 58, 138, 1);
+}
+
+.car-item__title-wrapper-3 {
+  box-shadow: 
+    6px 6px 12px rgba(30, 58, 138, 0.25),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-3 {
+  color: rgba(30, 58, 138, 1);
+}
+
+.car-item__card-3 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(30, 58, 138, 0.20),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-3 {
+  box-shadow: 
+    6px 6px 12px rgba(30, 58, 138, 0.20),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-3:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(30, 58, 138, 0.30),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(30, 58, 138, 1);
+}
+
+.car-item__buy-btn-3:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(30, 58, 138, 0.20),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-3 {
+  box-shadow: 
+    8px 8px 16px rgba(30, 58, 138, 0.20),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-3 {
+  box-shadow: 
+    3px 3px 6px rgba(30, 58, 138, 0.20),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   AUDI COLOURS
+   ======================================== */
+
+.car-gallery__arrow-4 {
+  background: linear-gradient(
+    to bottom,
+    rgba(100, 105, 110, 0.08) 0%,
+    rgba(100, 105, 110, 0.12) 50%,
+    rgba(100, 105, 110, 0.08) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(100, 105, 110, 0.30),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-4:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(100, 105, 110, 0.08) 0%,
+    rgba(100, 105, 110, 0.2) 50%,
+    rgba(100, 105, 110, 0.08) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(100, 105, 110, 0.40),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-4.active {
+  border-color: rgba(100, 105, 110, 0.9);
+  box-shadow: 0 0 10px rgba(100, 105, 110, 1);
+}
+
+.car-item__title-wrapper-4 {
+  box-shadow: 
+    6px 6px 12px rgba(100, 105, 110, 0.30),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-4 {
+  color: rgba(100, 105, 110, 1);
+}
+
+.car-item__card-4 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(100, 105, 110, 0.25),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-4 {
+  box-shadow: 
+    6px 6px 12px rgba(100, 105, 110, 0.25),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-4:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(100, 105, 110, 0.35),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(100, 105, 110, 1);
+}
+
+.car-item__buy-btn-4:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(100, 105, 110, 0.25),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-4 {
+  box-shadow: 
+    8px 8px 16px rgba(100, 105, 110, 0.25),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-4 {
+  box-shadow: 
+    3px 3px 6px rgba(100, 105, 110, 0.25),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   FOOTER SECTION
+   ======================================== */
+
+.footer {
+  background: var(--color-bg);
+  padding: 1rem 0 2rem;
+  margin-top: -2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top center,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+}
+
+.footer__container {
+  position: relative;
+  z-index: 1;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer__title {
+  font-family: 'Porsche Original', sans-serif;
+  font-size: 2rem;
+  color: var(--color-text);
+  margin-top: -0.6rem;
+  letter-spacing: 0.1em;
+}
+
+.footer__social {
+  display: flex;
+  gap: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.footer__social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border-radius: 50%;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.footer__social-link:hover {
+  color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.footer__social-link:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.footer__social-link svg {
+  height: 22px;
+}
+
+.footer__nav-title {
+  font-family: 'Porsche Next', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footer__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__link {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer__link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.footer__link:hover {
+  color: var(--color-text);
+  padding-left: 15px;
+}
+
+.footer__link:hover::before {
+  width: 10px;
+}
+
+.footer__contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1rem;
+  color: var(--color-text-light);
+}
+
+.footer__contact-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.footer__divider {
+  width: 100%;
+  height: 2px;
+  margin: 2rem 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.4),
+    0 -1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer__copyright {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.footer__legal {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer__legal-link {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__legal-link:hover {
+  color: var(--color-accent);
+}
+
+/* ========================================
+   КОРЗИНА
+   ======================================== */
+
+.cart-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cart-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.cart-modal__content {
+  position: relative;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  box-shadow: 
+    -0px -0px 24px 12px rgba(255, 255, 255, 0.2);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.cart-modal__content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-modal.active .cart-modal__content {
+  transform: scale(1);
+}
+
+.cart-modal__close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--color-bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.12),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+.cart-modal__close:hover {
+  scale: 1.05;
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+}
+
+.cart-modal__title {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+}
+
+.cart-modal__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 1.5rem 0 1.5rem;
+}
+
+.cart-item-row {
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.1),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.cart-item-row__logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  padding: 5px;
+}
+
+.cart-item-row__info {
+  flex: 1;
+}
+
+.cart-item-row__name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.cart-item-row__remove {
+  width: 32px;
+  height: 32px;
+  background: var(--color-bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cart-item-row__remove:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.cart-item-row__price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.cart-modal__empty {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 0;
+  color: var(--color-text-light);
+}
+
+.cart-modal__empty svg {
+  opacity: 0.4;
+}
+
+.cart-modal__empty p {
+  font-size: 1.2rem;
+  margin: 0;
+  padding-left: 0.8rem;
+}
+
+.cart-modal__empty.active {
+  display: flex;
+}
+
+.cart-modal__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text);
+  padding: 1rem 0 0;
+  margin-bottom: 1rem;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.cart-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-modal__input-group {
+  width: 100%;
+}
+
+.cart-modal__input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: 'Porsche Next', sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.cart-modal__input:focus {
+  outline: none;
+  box-shadow: 
+    inset 6px 6px 12px rgba(0, 0, 0, 0.12),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+}
+
+.cart-modal__input::placeholder {
+  color: var(--color-text-light);
+}
+
+.cart-modal__payment-title {
+  font-size: 1.3rem;
+  color: var(--color-text-light);
+  margin: 0.5rem 1rem 0.5rem 0;
+}
+
+.cart-modal__payment {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cart-modal__payment-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.1),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.cart-modal__payment-option:hover {
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.12),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
+}
+
+.cart-modal__payment-option input {
+  accent-color: var(--color-accent);
+}
+
+.cart-modal__buy-btn {
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Porsche Next', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+  margin-top: 0.5rem;
+}
+
+.cart-modal__buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: var(--color-accent);
+}
+
+.cart-modal__buy-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.cart-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: var(--color-bg);
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 
+    -0px -0px 24px 12px rgba(255, 255, 255, 0.2);
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.cart-notification.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.cart-notification svg {
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.cart-notification__text {
+  text-align: left;
+}
+
+.cart-notification__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0.3rem 0 0.3rem 0;
+}

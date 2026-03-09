@@ -1,0 +1,153 @@
+@media (min-width: 1600px) {
+  html { font-size: 19px; }
+  .car-item__card { max-width: 1600px; gap: 5rem; }
+  .car-gallery__slides { height: 80vh; }
+}
+
+@media (min-width: 1920px) {
+  html { font-size: 20px; }
+}
+
+@media (max-width: 1250px) {
+  .car-item__card {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 8%);
+    gap: 2rem;
+    padding: 2rem;
+    margin: 2rem auto;
+  }
+  .car-item__left { min-height: unset; }
+  .car-item__buy-btn { width: 100%; }
+}
+
+@media (max-width: 1100px) {
+  .header__menu { gap: 0.7rem; }
+  .header__link { font-size: 0.9rem; letter-spacing: 0.06em; }
+
+  .car-gallery__slides {
+    width: calc(100% - 130px);
+    height: 60vh;
+  }
+  .car-gallery__arrow--left  { left: 8px; }
+  .car-gallery__arrow--right { right: 8px; }
+
+  .car-item__card { width: calc(100% - 8%); }
+  .car-item__title-wrapper { padding: 1rem 2.5rem; }
+
+  .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  html { font-size: 16px; }
+
+  .header {
+    height: auto;
+    min-height: 64px;
+    padding: 0.6rem 1rem;
+  }
+  .header__container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .header__logo {
+    width: 80px;
+    flex-shrink: 0;
+  }
+  .header__menu {
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem 0.6rem;
+    order: 0;
+    width: auto;
+    padding: 0;
+  }
+  .header__link {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0;
+    text-align: center;
+  }
+  .header__cart {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-left: 0;
+  }
+
+  .hero { min-height: 100svh; }
+  .hero__content { padding: 1.2rem; }
+  .hero__subtitle { font-size: 1.1rem; }
+
+  .Info { padding: 2.5rem 1.2rem; }
+  .Info__title-wrapper { width: 10rem; height: 9rem; }
+  .Info__logo { width: 140px; }
+  .Info__text { font-size: 1.1rem; }
+  .Info__text-wrapper { padding: 1.8rem 1.1rem; }
+
+  .car-gallery__slides {
+    width: calc(100% - 100px);
+    height: 50vw;
+    min-height: 200px;
+    margin: 16px auto;
+    border-radius: 8px;
+  }
+  .car-gallery__arrow { width: 36px; }
+  .car-gallery__arrow--left  { left: 8px; }
+  .car-gallery__arrow--right { right: 8px; }
+  .car-gallery__arrow img { width: 22px; height: 22px; }
+
+  .car-item__title-wrapper {
+    padding: 0.8rem 1.5rem;
+    margin: 1.8rem auto 0.5rem;
+    width: calc(100% - 2rem);
+  }
+  .car-item__title { font-size: clamp(1.1rem, 5vw, 1.6rem); letter-spacing: 0.07em; }
+  .car-item__card { width: calc(100% - 2rem); gap: 1.5rem; padding: 1.4rem; margin: 1.2rem auto; }
+  .car-item__name { font-size: clamp(1.1rem, 4vw, 1.6rem); }
+  .car-item__description { font-size: 1rem; margin: 0.5rem 0 1rem; }
+  .car-item__price { font-size: 1.8rem; }
+  .car-item__specs { padding: 1.2rem; }
+  .car-item__specs-title { font-size: 1.1rem; }
+  .car-item__spec-row { padding: 0.55rem 0.7rem; }
+  .car-item__spec-label,
+  .car-item__spec-value { font-size: 0.88rem; }
+
+  .footer__top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer__brand { grid-column: auto; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+  .footer__legal { gap: 1rem; flex-wrap: wrap; }
+  .footer__title { font-size: 1.5rem; }
+  .cart-modal__payment-title { margin: 0.5rem 0.1rem 0.5rem 0; }
+  .cart-modal__payment { gap: 0.7rem; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+
+  .header__logo { width: 64px; }
+  .header__link { font-size: 0.66rem; }
+
+  .car-gallery__slides {
+    width: calc(100% - 84px);
+    height: 55vw;
+    min-height: 170px;
+    border-radius: 6px;
+  }
+  .car-gallery__arrow { width: 30px; }
+  .car-gallery__arrow img { width: 18px; height: 18px; }
+
+  .car-item__card { width: 100%; border-radius: 0; margin: 0.8rem 0; padding: 1rem 0.9rem; }
+  .car-item__title-wrapper { width: 100%; border-radius: 0; margin: 1.2rem 0 0.4rem; }
+
+  .Info { padding: 2rem 0.8rem; }
+  .Info__title-wrapper { width: 8.5rem; height: 7.5rem; }
+
+  .footer__social { gap: 0.9rem; }
+}

@@ -1,0 +1,23 @@
+:root {
+  --color-bg: #E5E4E2;
+  --color-bg-dark: #1a1a1a;
+  --color-bg-secondary: #c8c8c2;
+  --color-text: #1a1a1a;
+  --color-text-inverse: #E5E4E2;
+  --color-text-light: #1a1a1a;
+  --color-accent: #8b0000;
+  
+  --shadow-lg: 0 20px 30px rgba(5, 5, 5, 0.5);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition-normal: 300ms ease;
+  --space-lg: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-normal: 0.01ms;
+  }
+}
