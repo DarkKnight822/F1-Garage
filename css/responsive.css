@@ -151,7 +151,7 @@
   html { font-size: 15px; }
 
   .header__logo { width: 64px; }
-  .header__link { font-size: 0.66rem; }
+  .header__link { font-size: 0.7rem; }
 
   .car-gallery__slides {
     width: calc(100% - 90px);
@@ -197,7 +197,22 @@
     align-items: flex-start;
     gap: 0.2rem;
   }
+  .cart-modal__title {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 1.3rem;
+    padding-top: 0.57rem;
+  }
 
+  .cart-modal__payment {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .cart-modal__payment-option {
+    justify-content: center
+}
+  .cart-modal__payment-title {
+    margin: 0.5rem 0.1rem 0rem 0;
+  }
   .Info { padding: 2rem 0.8rem;}
   .Info__content { gap: 2rem; }
   .Info__title-wrapper { width: 8.5rem; height: 7.5rem; }
