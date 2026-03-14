@@ -149,6 +149,9 @@
 
 @media (max-width: 480px) {
   html { font-size: 15px; }
+  .container {
+    padding-inline: 0rem;
+  }
 
   .header__logo { width: 64px; }
   .header__link { font-size: 0.7rem; }
