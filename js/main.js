@@ -4,14 +4,14 @@
 
 const header = document.querySelector('.header');
 const hero = document.querySelector('.hero');
+const infoSection = document.querySelector('.Info');
 const ferrariDivider = document.getElementById('ferrari-divider');
 
-
 function updateHeaderStyle() {
-  const scrollPosition = window.scrollY;
-  const heroBottom = hero.offsetTop + hero.offsetHeight;
+  const infoTop = infoSection.getBoundingClientRect().top;
+  const headerHeight = header.offsetHeight;
 
-  if (scrollPosition < heroBottom -25) {
+  if (infoTop > headerHeight / 2) {
     header.classList.add('header--light');
     header.classList.remove('header--dark');
   } else {
@@ -114,7 +114,6 @@ const headerCart = document.querySelector('.header__cart');
 
 let cart = [];
 
-// --- 1. ОТКРЫТИЕ КОРЗИНЫ ---
 if (headerCart) {
   headerCart.addEventListener('click', () => {
     cartModal.classList.add('active');
@@ -123,7 +122,6 @@ if (headerCart) {
   });
 }
 
-// --- 2. ЗАКРЫТИЕ КОРЗИНЫ ---
 function closeCart() {
   if (cartModal) {
     cartModal.classList.remove('active');
@@ -137,13 +135,11 @@ if (cartModal) {
   if (overlay) overlay.addEventListener('click', closeCart);
 }
 
-// --- 3. УДАЛЕНИЕ ТОВАРА ---
 window.removeFromCart = function(index) {
   cart.splice(index, 1);
   renderCart();
 };
 
-// --- 4. ОТРИСОВКА КОРЗИНЫ ---
 function renderCart() {
   if (!cartItemsContainer || !cartEmpty || !cartTotal) return;
   if (cart.length === 0) {

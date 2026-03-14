@@ -153,6 +153,7 @@ body {
    ======================================== */
 
 .hero {
+  position: relative;
   height: 100vh;
   min-height: 700px;
   display: flex;
@@ -225,7 +226,6 @@ body {
 .Info {
   position: relative;
   background-color: var(--color-bg);
-  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -421,7 +421,7 @@ body {
   top: 0;
   bottom: 0;
   height: auto;
-  width: 30px;
+  width: 40px;
   background: rgba(0, 0, 0, 0.2);
   border: none;
   cursor: pointer;
@@ -440,11 +440,11 @@ body {
 }
 
 .car-gallery__arrow--left {
-  left: calc(10% - 60px);
+  left: calc(10% - 75px);
 }
 
 .car-gallery__arrow--right {
-  right: calc(10% - 60px);
+  right: calc(10% - 75px);
 }
 
 .car-gallery__dots {
