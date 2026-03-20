@@ -257,7 +257,7 @@ function showSuccessNotification() {
 
   setTimeout(() => {
     cartNotification.classList.remove('active');
-  }, 4000);
+  }, 3000);
 }
 
 document.addEventListener('keydown', (e) => {

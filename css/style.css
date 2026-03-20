@@ -203,14 +203,14 @@ body {
 .hero__title {
   font-family: 'Porsche Original', 'Porsche Next', sans-serif;
   font-weight: 700;
-  font-size: clamp(2rem, 4vw, 6rem);
+  font-size: clamp(2.5rem, 3vw, 6rem);
   opacity: 90%;
   color: var(--color-text-inverse);
   letter-spacing: 0.12em;
 }
 
 .hero__subtitle {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--space-lg);
   max-width: 600px;
@@ -1521,7 +1521,7 @@ body {
 }
 
 .cart-notification__text {
-  text-align: left;
+  text-align: center;
 }
 
 .cart-notification__title {
