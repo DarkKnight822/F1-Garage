@@ -3,7 +3,7 @@
   src: 
     url('../fonts/PorscheNext-Regular.woff2') format('woff2'),
     url('../fonts/PorscheNext-Regular.woff') format('woff'),
-    url('../fonts/PorscheNext-Regular.otf') format('opentype');
+    url('../fonts/porsche-next.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -14,7 +14,7 @@
   src: 
     url('../fonts/PorscheNext-Bold.woff2') format('woff2'),
     url('../fonts/PorscheNext-Bold.woff') format('woff'),
-    url('../fonts/PorscheNext-Bold.otf') format('opentype');
+    url('../fonts/porsche-next-bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

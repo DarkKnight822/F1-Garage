@@ -1,0 +1,640 @@
+﻿/* ========================================
+   CAR PHOTO SECTION
+   ======================================== */
+
+.car-item__divider {
+  width: 90%;
+  height: 2px;
+  margin: 1rem auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 70%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.4),
+    0 -1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.car-gallery {
+  position: relative;
+}
+
+.car-gallery__slides {
+  position: relative;
+  width: calc(100% - 20%);
+  height: 77vh;
+  margin: 40px auto;
+  box-shadow: 
+    0 0 0 5px var(--color-bg-secondary),
+    0 0 10px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.car-gallery__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.8s ease, transform 1s ease-out;
+}
+
+.car-gallery__slide:hover {
+  transform: scale(1.12);
+}
+
+.car-gallery__slide.active {
+  opacity: 1;
+  z-index: 1;
+  filter: blur(0);
+}
+
+.car-gallery__viewport {
+  position: relative;
+}
+
+.car-gallery__arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: 40px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-gallery__arrow img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.6;
+}
+
+.car-gallery__arrow--left {
+  left: calc(10% - 75px);
+}
+
+.car-gallery__arrow--right {
+  right: calc(10% - 75px);
+}
+
+.car-gallery__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 50;
+  padding: 9px 16px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+}
+
+.car-gallery__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.car-gallery__dot.active {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.4);
+}
+
+.car-gallery__dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.car-item__title-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 5rem;
+  margin: 3.8rem auto 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  width: fit-content;
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__title {
+  font-family: 'Porsche Original', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: var(--color-text);
+  opacity: 90%;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   CAR ITEM — КАРТОЧКА ТОВАРА
+   ======================================== */
+
+.car-item__card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  margin: 3rem auto;
+  max-width: 1450px;
+  width: calc(100% - 20%);
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 4rem;
+}
+
+.car-item__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 400px;
+}
+
+.car-item__name {
+  font-family: 'Porsche Original', sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.car-item__description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin: 1rem 0 2rem;
+}
+
+.car-item__price-wrapper {
+  margin-top: auto;
+}
+
+.car-item__price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  font-family: 'Porsche Next', sans-serif;
+}
+
+.car-item__buy-btn {
+  padding: 1rem 2.5rem;
+  margin-top: -0.2rem;
+  font-family: 'Porsche Next', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.car-item__buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.car-item__buy-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.car-item__specs-title {
+  font-family: 'Porsche Original', sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-text);
+  margin: 0 0 1rem 0;
+  text-align: center;
+  letter-spacing: 0.15em;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.car-item__spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  box-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.08),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-label {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.car-item__spec-value {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ========================================
+   FERRARI COLOURS
+   ======================================== */
+
+.car-gallery__arrow-1 {
+  background: linear-gradient(
+    to bottom,
+    rgba(212, 0, 0, 0.03) 0%,
+    rgba(212, 0, 0, 0.06) 50%,
+    rgba(212, 0, 0, 0.03) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(212, 0, 0, 0.14),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-1:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(212, 0, 0, 0.03) 0%,
+    rgba(212, 0, 0, 0.1) 50%,
+    rgba(212, 0, 0, 0.03) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(212, 0, 0, 0.2),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-1.active {
+  border-color: rgba(212, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(212, 0, 0, 1);
+}
+
+.car-item__title-wrapper-1 {
+  box-shadow: 
+    6px 6px 12px rgba(212, 0, 0, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-1 {
+  color: rgba(212, 0, 0, 0.9);
+}
+
+.car-item__card-1 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(212, 0, 0, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-1 {
+  box-shadow: 
+    6px 6px 12px rgba(212, 0, 0, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-1:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(212, 0, 0, 0.14),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(212, 0, 0, 1);
+}
+
+.car-item__buy-btn-1:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(212, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-1 {
+  box-shadow: 
+    8px 8px 16px rgba(212, 0, 0, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-1 {
+  box-shadow: 
+    3px 3px 6px rgba(212, 0, 0, 0.12),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   MERCEDES COLOURS
+   ======================================== */
+
+.car-gallery__arrow-2 {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 157, 135, 0.03) 0%,
+    rgba(0, 157, 135, 0.06) 50%,
+    rgba(0, 157, 135, 0.03) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(0, 157, 135, 0.14),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-2:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 157, 135, 0.03) 0%,
+    rgba(0, 157, 135, 0.1) 50%,
+    rgba(0, 157, 135, 0.03) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(0, 157, 135, 0.2),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-2.active {
+  border-color: rgba(0, 157, 135, 0.7);
+  box-shadow: 0 0 10px rgba(0, 157, 135, 1);
+}
+
+.car-item__title-wrapper-2 {
+  box-shadow: 
+    6px 6px 12px rgba(0, 157, 135, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-2 {
+  color: rgba(0, 157, 135, 0.9);
+}
+
+.car-item__card-2 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 157, 135, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-2 {
+  box-shadow: 
+    6px 6px 12px rgba(0, 157, 135, 0.12),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-2:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(0, 157, 135, 0.14),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(0, 157, 135, 1);
+}
+
+.car-item__buy-btn-2:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 157, 135, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-2 {
+  box-shadow: 
+    8px 8px 16px rgba(0, 157, 135, 0.12),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-2 {
+  box-shadow: 
+    3px 3px 6px rgba(0, 157, 135, 0.12),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   REDBULL COLOURS
+   ======================================== */
+
+.car-gallery__arrow-3 {
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 58, 138, 0.08) 0%,
+    rgba(30, 58, 138, 0.12) 50%,
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(30, 58, 138, 0.25),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-3:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 58, 138, 0.08) 0%,
+    rgba(30, 58, 138, 0.2) 50%,
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(30, 58, 138, 0.35),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-3.active {
+  border-color: rgba(30, 58, 138, 0.9);
+  box-shadow: 0 0 10px rgba(30, 58, 138, 1);
+}
+
+.car-item__title-wrapper-3 {
+  box-shadow: 
+    6px 6px 12px rgba(30, 58, 138, 0.25),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-3 {
+  color: rgba(30, 58, 138, 1);
+}
+
+.car-item__card-3 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(30, 58, 138, 0.20),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-3 {
+  box-shadow: 
+    6px 6px 12px rgba(30, 58, 138, 0.20),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-3:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(30, 58, 138, 0.30),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(30, 58, 138, 1);
+}
+
+.car-item__buy-btn-3:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(30, 58, 138, 0.20),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-3 {
+  box-shadow: 
+    8px 8px 16px rgba(30, 58, 138, 0.20),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-3 {
+  box-shadow: 
+    3px 3px 6px rgba(30, 58, 138, 0.20),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   AUDI COLOURS
+   ======================================== */
+
+.car-gallery__arrow-4 {
+  background: linear-gradient(
+    to bottom,
+    rgba(100, 105, 110, 0.08) 0%,
+    rgba(100, 105, 110, 0.12) 50%,
+    rgba(100, 105, 110, 0.08) 100%
+  );
+  box-shadow: 
+    6px 6px 12px rgba(100, 105, 110, 0.30),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.car-gallery__arrow-4:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(
+    to bottom,
+    rgba(100, 105, 110, 0.08) 0%,
+    rgba(100, 105, 110, 0.2) 50%,
+    rgba(100, 105, 110, 0.08) 100%
+  );
+  box-shadow: 
+    8px 8px 16px rgba(100, 105, 110, 0.40),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.car-gallery__dot-4.active {
+  border-color: rgba(100, 105, 110, 0.9);
+  box-shadow: 0 0 10px rgba(100, 105, 110, 1);
+}
+
+.car-item__title-wrapper-4 {
+  box-shadow: 
+    6px 6px 12px rgba(100, 105, 110, 0.30),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.car-item__title-4 {
+  color: rgba(100, 105, 110, 1);
+}
+
+.car-item__card-4 {
+  box-shadow: 
+    inset 8px 8px 16px rgba(100, 105, 110, 0.25),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-4 {
+  box-shadow: 
+    6px 6px 12px rgba(100, 105, 110, 0.25),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__buy-btn-4:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(100, 105, 110, 0.35),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+  color: rgba(100, 105, 110, 1);
+}
+
+.car-item__buy-btn-4:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 4px 4px 8px rgba(100, 105, 110, 0.25),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__specs-4 {
+  box-shadow: 
+    8px 8px 16px rgba(100, 105, 110, 0.25),
+    -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.car-item__spec-row-4 {
+  box-shadow: 
+    3px 3px 6px rgba(100, 105, 110, 0.25),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+

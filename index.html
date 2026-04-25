@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="./fonts/fonts.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/responsive.css">
-    <link rel="icon" href="./images/favicon.ico"> 
+    <link rel="icon" href="./images/icons/favicon.ico"> 
     
+    <script src="./js/catalog.js" defer></script>
     <script src="./js/main.js" defer></script>
 </head>
 <body>
     <header class="header" id="header">
         <div class="header__container container">
-            <img src="./images/F1_Icon.svg" class="header__logo" alt="F1-Garage">
+            <img src="./images/icons/F1_Icon.svg" class="header__logo" alt="F1-Garage">
             <nav class="header__nav">
                 <ul class="header__menu">
                     <li><a href="#home" class="header__link">Главная</a></li>
@@ -49,7 +50,7 @@
     <section class="Info" id="Info">
        <div class="Info__content">
             <div class="Info__title-wrapper">
-                <img src="./images/F1_Icon.svg" alt="F1-Garage" class="Info__logo">
+                <img src="./images/icons/F1_Icon.svg" alt="F1-Garage" class="Info__logo">
             </div>
             <div class="Info__text-wrapper">
                 <p class="Info__text">
@@ -61,348 +62,8 @@
         </div>
     </section>
     
-    <section class="cars" id="cars">
-        <article class="car-item">
-            <div class="car-item__divider" id="ferrari-divider"></div>
-            <div class="car-gallery">
-                
-                <div class="car-item__title-wrapper car-item__title-wrapper-1">
-                    <h3 class="car-item__title car-item__title-1">Ferrari SF-26</h3>
-                </div>
-
-                <div class="car-gallery__viewport">
-                    <button class="car-gallery__arrow car-gallery__arrow--left car-gallery__arrow-1" aria-label="Предыдущее фото">
-                        <img src="./images/arrow-left.svg" alt="←">
-                    </button>
-                    <div class="car-gallery__slides car-gallery__slides-1">
-                        <img src="./images/cars/Ferrari/2026-Ferrari-SF-26.webp" class="car-gallery__slide active" alt="..." loading="lazy">
-                        <img src="./images/cars/Ferrari/2026-Ferrari-SF-26-2.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                        <img src="./images/cars/Ferrari/2026-Ferrari-SF-26-3.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                        <img src="./images/cars/Ferrari/2026-Ferrari-SF-26-4.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                    </div>
-                    <button class="car-gallery__arrow car-gallery__arrow--right car-gallery__arrow-1" aria-label="Следующее фото">
-                        <img src="./images/arrow-right.svg" alt="→">
-                    </button>
-                    
-                    <div class="car-gallery__dots">
-                        <span class="car-gallery__dot car-gallery__dot-1 active"></span>
-                        <span class="car-gallery__dot car-gallery__dot-1"></span>
-                        <span class="car-gallery__dot car-gallery__dot-1"></span>
-                        <span class="car-gallery__dot car-gallery__dot-1"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item__card car-item__card-1">
-                <div class="car-item__left">
-                    <h3 class="car-item__name">Ferrari SF-26</h3>
-                    
-                    <p class="car-item__description">
-                        Страсть и точность в одном шасси. SF-26 — это Ferrari, 
-                        переосмысленный под новую эру: активная аэродинамика, 
-                        звучный V6 и голодный взгляд Леклера на чемпионство.
-                    </p>
-
-                    <div class="car-item__price-wrapper">
-                        <span class="car-item__price">€ 15 600 000</span>
-                    </div>
-                    
-                    <button class="car-item__buy-btn car-item__buy-btn-1">
-                        <span>В корзину</span>
-                    </button>
-                </div>
-
-                <div class="car-item__specs car-item__specs-1">
-                    <h4 class="car-item__specs-title">Характеристики</h4>
-
-                    <div class="car-item__spec-row car-item__spec-row-1">
-                        <span class="car-item__spec-label">Пилоты</span>
-                        <span class="car-item__spec-value">C. Leclerc | L. Hamilton</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-1">
-                        <span class="car-item__spec-label">Двигатель</span>
-                        <span class="car-item__spec-value">1.6L V6 Turbo Hybrid</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-1">
-                        <span class="car-item__spec-label">Электрическая мощность</span>
-                        <span class="car-item__spec-value">730+ кВт (980+ л. с.)</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-1">
-                        <span class="car-item__spec-label">Максимальная скорость</span>
-                        <span class="car-item__spec-value">360+ км/ч | 223+ миль/ч</span>
-                    </div>
-
-                    <div class="car-item__spec-row car-item__spec-row-1">
-                        <span class="car-item__spec-label">Вес</span>
-                        <span class="car-item__spec-value">768 кг</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-1">
-                        <span class="car-item__spec-label">Ливрея</span>
-                        <span class="car-item__spec-value">Глянцевый Rosso Corsa</span>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-   
-        <article class="car-item">
-            <div class="car-item__divider" id="ferrari-divider"></div>
-            <div class="car-gallery">
-                
-                <div class="car-item__title-wrapper car-item__title-wrapper-2">
-                    <h3 class="car-item__title car-item__title-2">Mercedes AMG W17</h3>
-                </div>
-
-                <div class="car-gallery__viewport">
-                    <button class="car-gallery__arrow car-gallery__arrow--left car-gallery__arrow-2" aria-label="Предыдущее фото">
-                        <img src="./images/arrow-left.svg" alt="←">
-                    </button>
-                    <div class="car-gallery__slides car-gallery__slides-2">
-                        <img src="./images/cars/Mercedes/2026-Mercedes-AMG-F1-W17-E-Performance-1.webp" class="car-gallery__slide active" alt="..." loading="lazy">
-                        <img src="./images/cars/Mercedes/2026-Mercedes-AMG-F1-W17-E-Performance-2.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                        <img src="./images/cars/Mercedes/2026-Mercedes-AMG-F1-W17-E-Performance-3.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                        <img src="./images/cars/Mercedes/2026-Mercedes-AMG-F1-W17-E-Performance-4.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                    </div>
-                    <button class="car-gallery__arrow car-gallery__arrow--right car-gallery__arrow-2" aria-label="Следующее фото">
-                        <img src="./images/arrow-right.svg" alt="→">
-                    </button>
-                    
-                    <div class="car-gallery__dots">
-                        <span class="car-gallery__dot car-gallery__dot-2 active"></span>
-                        <span class="car-gallery__dot car-gallery__dot-2"></span>
-                        <span class="car-gallery__dot car-gallery__dot-2"></span>
-                        <span class="car-gallery__dot car-gallery__dot-2"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item__card car-item__card-2">
-                <div class="car-item__left">
-                    <h3 class="car-item__name">Mercedes W17</h3>
-                    
-                    <p class="car-item__description">
-                        Серебряные стрелы перезагружены. W17 — тихий, методичный,
-                        смертоносный. Брэкли вложили три года боли в одно шасси,
-                        чтобы напомнить всем, кто строил эту эпоху.
-                    </p>
-
-                    <div class="car-item__price-wrapper">
-                        <span class="car-item__price">€ 15 200 000</span>
-                    </div>
-                    
-                    <button class="car-item__buy-btn car-item__buy-btn-2">
-                        <span>В корзину</span>
-                    </button>
-                </div>
-
-                <div class="car-item__specs car-item__specs-2">
-                    <h4 class="car-item__specs-title">Характеристики</h4>
-
-                    <div class="car-item__spec-row car-item__spec-row-2">
-                        <span class="car-item__spec-label">Пилоты</span>
-                        <span class="car-item__spec-value">G. Russell | K. Antonelli</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-2">
-                        <span class="car-item__spec-label">Двигатель</span>
-                        <span class="car-item__spec-value">1.6L V6 Turbo Hybrid</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-2">
-                        <span class="car-item__spec-label">Электрическая мощность</span>
-                        <span class="car-item__spec-value">730+ кВт / (980+ л. с.)</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-2">
-                        <span class="car-item__spec-label">Максимальная скорость</span>
-                        <span class="car-item__spec-value">360+ км/ч | 223+ миль/ч</span>
-                    </div>
-
-                    <div class="car-item__spec-row car-item__spec-row-2">
-                        <span class="car-item__spec-label">Вес</span>
-                        <span class="car-item__spec-value">768 кг</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-2">
-                        <span class="car-item__spec-label">Ливрея</span>
-                        <span class="car-item__spec-value">Silver Arrow | Petronas Teal</span>
-                    </div>
-                </div>    
-            </div>
-        </article>
-
-        <article class="car-item">
-            <div class="car-item__divider" id="ferrari-divider"></div>
-            <div class="car-gallery">
-                
-                <div class="car-item__title-wrapper car-item__title-wrapper-3">
-                    <h3 class="car-item__title car-item__title-3">RedBull RB22</h3>
-                </div>
-
-                <div class="car-gallery__viewport">
-                    <button class="car-gallery__arrow car-gallery__arrow--left car-gallery__arrow-3" aria-label="Предыдущее фото">
-                        <img src="./images/arrow-left.svg" alt="←">
-                    </button>
-                    <div class="car-gallery__slides car-gallery__slides-3">
-                        <img src="./images/cars/RedBull/2026-Formula1-Red-Bull-Racing-RB22-1.webp" class="car-gallery__slide active" alt="..." loading="lazy">
-                        <img src="./images/cars/RedBull/2026-Formula1-Red-Bull-Racing-RB22-2.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                        <img src="./images/cars/RedBull/2026-Formula1-Red-Bull-Racing-RB22-3.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                        <img src="./images/cars/RedBull/2026-Formula1-Red-Bull-Racing-RB22-4.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                    </div>
-                    <button class="car-gallery__arrow car-gallery__arrow--right car-gallery__arrow-3" aria-label="Следующее фото">
-                        <img src="./images/arrow-right.svg" alt="→">
-                    </button>
-                    
-                    <div class="car-gallery__dots">
-                        <span class="car-gallery__dot car-gallery__dot-3 active"></span>
-                        <span class="car-gallery__dot car-gallery__dot-3"></span>
-                        <span class="car-gallery__dot car-gallery__dot-3"></span>
-                        <span class="car-gallery__dot car-gallery__dot-3"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item__card car-item__card-3">
-                <div class="car-item__left">
-                    <h3 class="car-item__name">RedBull RB22</h3>
-                    
-                    <p class="car-item__description">
-                            Синий снаряд из Милтон-Кинс. RB22 создан в эпоху перемен,
-                            но с одной константой — Макс Верстаппен впереди всех.
-                            Новая формула, знакомый результат.
-                    </p>
-
-                    <div class="car-item__price-wrapper">
-                        <span class="car-item__price">€ 14 900 000</span>
-                    </div>
-                    
-                    <button class="car-item__buy-btn car-item__buy-btn-3">
-                        <span>В корзину</span>
-                    </button>
-                </div>
-
-                <div class="car-item__specs car-item__specs-3">
-                    <h4 class="car-item__specs-title">Характеристики</h4>
-
-                    <div class="car-item__spec-row car-item__spec-row-3">
-                        <span class="car-item__spec-label">Пилоты</span>
-                        <span class="car-item__spec-value">M. Verstappen | I. Hadjar</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-3">
-                        <span class="car-item__spec-label">Двигатель</span>
-                        <span class="car-item__spec-value">1.6L V6 Turbo Hybrid</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-3">
-                        <span class="car-item__spec-label">Электрическая мощность</span>
-                        <span class="car-item__spec-value">730+ кВт (980+ л. с.)</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-3">
-                        <span class="car-item__spec-label">Максимальная скорость</span>
-                        <span class="car-item__spec-value">360+ км/ч | 223+ миль/ч</span>
-                    </div>
-
-                    <div class="car-item__spec-row car-item__spec-row-3">
-                        <span class="car-item__spec-label">Вес</span>
-                        <span class="car-item__spec-value">768 кг</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-3">
-                        <span class="car-item__spec-label">Ливрея</span>
-                        <span class="car-item__spec-value">Navy Blue</span>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-        
-        <article class="car-item">
-            <div class="car-item__divider" id="ferrari-divider"></div>
-            <div class="car-gallery">
-                
-                <div class="car-item__title-wrapper car-item__title-wrapper-4">
-                    <h3 class="car-item__title car-item__title-4">Audi R26</h3>
-                </div>
-
-                <div class="car-gallery__viewport">
-                    <button class="car-gallery__arrow car-gallery__arrow--left car-gallery__arrow-4" aria-label="Предыдущее фото">
-                        <img src="./images/arrow-left.svg" alt="←">
-                    </button>
-                    <div class="car-gallery__slides car-gallery__slides-4">
-                        <img src="./images/cars/Audi/2026-Audi-R26-2.webp" class="car-gallery__slide active" alt="..." loading="lazy">
-                        <img src="./images/cars/Audi/2026-Audi-R26-1.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                        <img src="./images/cars/Audi/2026-Audi-R26-3.webp" class="car-gallery__slide" alt="..." loading="lazy">
-                    </div>
-                    <button class="car-gallery__arrow car-gallery__arrow--right car-gallery__arrow-4" aria-label="Следующее фото">
-                        <img src="./images/arrow-right.svg" alt="→">
-                    </button>
-                    
-                    <div class="car-gallery__dots">
-                        <span class="car-gallery__dot car-gallery__dot-4 active"></span>
-                        <span class="car-gallery__dot car-gallery__dot-4"></span>
-                        <span class="car-gallery__dot car-gallery__dot-4"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="car-item__card car-item__card-4">
-                <div class="car-item__left">
-                    <h3 class="car-item__name">Audi R26</h3>
-                    
-                    <p class="car-item__description">
-                        Дебют, которого ждали много лет. Audi врывается в Формулу-1
-                        с собственным мотором, двумя голодными пилотами
-                        и немецким упрямством доказать всё с первой гонки.
-                    </p>
-
-                    <div class="car-item__price-wrapper">
-                        <span class="car-item__price">€ 15 800 000</span>
-                    </div>
-                    
-                    <button class="car-item__buy-btn car-item__buy-btn-4">
-                        <span>В корзину</span>
-                    </button>
-                </div>
-
-                <div class="car-item__specs car-item__specs-4">
-                    <h4 class="car-item__specs-title">Характеристики</h4>
-
-                    <div class="car-item__spec-row car-item__spec-row-4">
-                        <span class="car-item__spec-label">Пилоты</span>
-                        <span class="car-item__spec-value">G. Bortoleto | N. Hülkenberg</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-4">
-                        <span class="car-item__spec-label">Двигатель</span>
-                        <span class="car-item__spec-value">1.6L V6 Turbo Hybrid</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-4">
-                        <span class="car-item__spec-label">Электрическая мощность</span>
-                        <span class="car-item__spec-value">730+ кВт (980+ л. с.)</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-4">
-                        <span class="car-item__spec-label">Максимальная скорость</span>
-                        <span class="car-item__spec-value">360+ км/ч | 223+ миль/ч</span>
-                    </div>
-
-                    <div class="car-item__spec-row car-item__spec-row-4">
-                        <span class="car-item__spec-label">Вес</span>
-                        <span class="car-item__spec-value">768 кг</span>
-                    </div>
-                    
-                    <div class="car-item__spec-row car-item__spec-row-4">
-                        <span class="car-item__spec-label">Ливрея</span>
-                        <span class="car-item__spec-value">Audi Silver</span>
-                    </div>
-                </div>
-                
-            </div>
-        </article>
-    </section>
+    <section class="cars" id="cars"></section>
+    
     <footer class="footer" id="contacts">
         <div class="footer__divider"></div>
         <div class="footer__container container">
@@ -544,9 +205,8 @@
     </div>
 
     <div class="cart-notification" id="cart-notification">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M5 12.5l4.5 4.5L19 7"></path>
         </svg>
         <div class="cart-notification__text">
             <p class="cart-notification__title">Заказ оформлен!</p>

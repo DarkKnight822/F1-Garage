@@ -1,0 +1,134 @@
+﻿/* ========================================
+   INFO SECTION
+   ======================================== */
+
+.Info {
+  position: relative;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 3rem;
+  overflow: hidden;
+}
+
+.Info::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at bottom center,
+    transparent 0%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.171) 100%
+  );
+}
+
+.Info__content {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.Info__title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  height: 12rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  margin-inline: auto;
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.15),
+    -12px -12px 24px rgba(255, 255, 255, 0.8);
+}
+
+.Info__title-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 200deg,
+    rgba(255, 255, 255, 0.9) 240deg,
+    rgba(255, 255, 255, 0.4) 280deg,
+    transparent 320deg,
+    transparent 360deg
+  );
+  animation: shineRotate 6s linear infinite;
+  pointer-events: none;
+}
+
+.Info__title-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: var(--color-bg);
+  border-radius: calc(var(--radius-lg) - 2px);
+  pointer-events: none;
+}
+
+@keyframes shineRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Info__logo {
+  position: relative;
+  z-index: 2;
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.Info__text-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.12),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+}
+
+.Info__text {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.Info__text:last-child {
+  margin-bottom: 0;
+}
+
+.Info__divider {
+  width: 90%;
+  height: 2px;
+  margin: 1.5rem auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.4),
+    0 -1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-full);
+}
+

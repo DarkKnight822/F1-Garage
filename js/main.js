@@ -3,7 +3,6 @@
 // ========================================
 
 const header = document.querySelector('.header');
-const hero = document.querySelector('.hero');
 const infoSection = document.querySelector('.Info');
 const ferrariDivider = document.getElementById('ferrari-divider');
 
@@ -205,7 +204,7 @@ document.querySelectorAll('.car-item__buy-btn').forEach((btn) => {
 
     const name = carItem.querySelector('.car-item__name').textContent.trim();
     const price = carItem.querySelector('.car-item__price').textContent.trim();
-    let logo = './images/F1_Icon.svg';
+    let logo = './images/icons/F1_Icon.svg';
     if (name.includes('Ferrari')) {
       logo = './images/logo/Ferrari.webp';
     } 
@@ -224,7 +223,7 @@ document.querySelectorAll('.car-item__buy-btn').forEach((btn) => {
   });
 });
 
-function showNotification(message) {
+function showNotification(message, type = 'success') {
   if (!cartNotification) return;
   
   const title = cartNotification.querySelector('.cart-notification__title');
@@ -233,7 +232,10 @@ function showNotification(message) {
   subtitle.textContent = '';
 
   const icon = cartNotification.querySelector('svg');
-  if(icon) icon.style.color = '#22c55e';
+  if (icon) {
+    icon.style.display = type === 'error' ? 'none' : '';
+    icon.style.color = '';
+  }
 
   cartNotification.classList.add('active');
   
@@ -251,7 +253,10 @@ function showSuccessNotification() {
   title.textContent = 'Заказ оформлен!';
   subtitle.textContent = 'Ожидайте звонка менеджера в течение 15 минут.';
   
-  if(icon) icon.style.color = '#22c55e'; 
+  if (icon) {
+    icon.style.display = '';
+    icon.style.color = '';
+  }
 
   cartNotification.classList.add('active');
 
